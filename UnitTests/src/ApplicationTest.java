@@ -43,8 +43,13 @@ public class ApplicationTest {
             robot.delay(1000);
             robot.mousePress(InputEvent.BUTTON1_MASK);
             robot.mouseRelease(InputEvent.BUTTON1_MASK);
-            robot.delay(10000);
+            robot.delay(1000);
             
+            robot.mouseMove(310, 270);
+            robot.delay(1000);
+            robot.mousePress(InputEvent.BUTTON1_MASK);
+            robot.mouseRelease(InputEvent.BUTTON1_MASK);
+            robot.delay(10000);
             
             robot.keyPress(KeyEvent.VK_ESCAPE);
             robot.delay(1000);
@@ -59,10 +64,36 @@ public class ApplicationTest {
             robot.delay(1000);
             robot.mousePress(InputEvent.BUTTON1_MASK);
             robot.delay(1000);
-            robot.mouseMove(300, 250);
+            robot.mouseMove(250, 250);
             robot.delay(1000);
             robot.mouseRelease(InputEvent.BUTTON1_MASK);
             robot.delay(1000);
+            
+            robot.mouseMove(200, 250);//planet move
+            robot.delay(1000);
+            robot.mousePress(InputEvent.BUTTON1_MASK);
+            robot.delay(1000);
+            robot.mouseMove(250, 250);
+            robot.delay(1000);
+            robot.mouseRelease(InputEvent.BUTTON1_MASK);
+            robot.delay(1000);
+            
+            robot.mouseMove(250, 250);//planet copy
+            robot.delay(1000);
+            robot.mousePress(InputEvent.BUTTON2_MASK);
+            robot.delay(1000);
+            robot.mouseMove(250, 150);
+            robot.delay(1000);
+            robot.mouseRelease(InputEvent.BUTTON2_MASK);
+            robot.delay(1000);
+            
+            robot.mouseMove(250, 150);//planet delete
+            robot.delay(1000);
+            robot.mousePress(InputEvent.BUTTON3_MASK);
+            robot.mouseRelease(InputEvent.BUTTON3_MASK);
+            robot.delay(1000);
+            
+            
             robot.keyPress(KeyEvent.VK_ESCAPE);//esc
             robot.delay(1000);
             //main menu
