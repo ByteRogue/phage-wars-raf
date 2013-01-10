@@ -5,11 +5,20 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JEditorPane;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import engine.Sprite;
 import engine.SpritePanel;
@@ -76,10 +85,28 @@ public class EditPanel extends SpritePanel implements MouseListener, MouseMotion
 				break;
 			}
 		}
-		if (selectedPlanet == null && e.getButton() == MouseEvent.BUTTON1){
-			editPlanet = new Planet();
-			editPlanet.setX(e.getX());
-			editPlanet.setY(e.getY());
+		if (e.getButton() == MouseEvent.BUTTON1){
+			if (selectedPlanet == null){
+				editPlanet = new Planet();
+				editPlanet.setX(e.getX());
+				editPlanet.setY(e.getY());
+			} 
+			else if (e.getClickCount() == 2){
+				NumberFormat intFormat = NumberFormat.getIntegerInstance();
+				JFormattedTextField radiusField = new JFormattedTextField(intFormat);
+				radiusField.setText(Integer.toString(selectedPlanet.getRadius()));
+				JFormattedTextField numberField = new JFormattedTextField(intFormat);
+				numberField.setText(Integer.toString(selectedPlanet.getNumber()));
+				String viruses[] = {"Neutral", "Player", "Oponent 1","Oponent 2","Oponent 3", "Oponent 4", "Oponent 5"};
+				JComboBox<String> virusCombo = new JComboBox<String>(viruses);
+				JComponent inputs[] = {new JLabel("Radius:"), radiusField, new JLabel("Number:"), numberField, new JLabel("Type:"), virusCombo};
+				JOptionPane.showMessageDialog(this, inputs, "Planet Properties", JOptionPane.PLAIN_MESSAGE);
+				
+				selectedPlanet.setNumber(Integer.parseInt(numberField.getText()));
+				selectedPlanet.setRadius(Integer.parseInt(radiusField.getText()));
+				selectedPlanet.setOwner(virusCombo.getSelectedIndex());
+				selectedPlanet = null;
+			}
 		}
 		else {
 			if (e.getButton() == MouseEvent.BUTTON2 && selectedPlanet != null) {
