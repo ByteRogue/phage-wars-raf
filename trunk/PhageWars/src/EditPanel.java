@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class EditPanel extends SpritePanel implements MouseListener, MouseMotion
 	 * 
 	 */
 	private static final long serialVersionUID = -1983250486298033038L;
-	Map<Planet, Integer> planets = new HashMap<Planet, Integer>();
+	ArrayList<Planet> planets = new ArrayList<Planet>();
 	Planet selectedPlanet = null;
 	Planet editPlanet = null;
 	public EditPanel(){
@@ -65,8 +66,7 @@ public class EditPanel extends SpritePanel implements MouseListener, MouseMotion
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		Set<Planet> planetSet = planets.keySet();
-		Iterator<Planet> it = planetSet.iterator();
+		Iterator<Planet> it = planets.iterator();
 		while (it.hasNext()) {
 			Planet p = it.next();
 			int dx = (int)(p.getX() - e.getX());
@@ -89,7 +89,7 @@ public class EditPanel extends SpritePanel implements MouseListener, MouseMotion
 				copyPlanet.setX(selectedPlanet.getX());
 				copyPlanet.setY(selectedPlanet.getY());
 				
-				planets.put(copyPlanet, sprites.size());
+				planets.add(copyPlanet);
 				sprites.add(copyPlanet);
 				//planets.add(copyPlanet);
 				
@@ -106,28 +106,23 @@ public class EditPanel extends SpritePanel implements MouseListener, MouseMotion
 			if (editPlanet != null) {
 				if (editPlanet.getRadius() < 15)
 					editPlanet.setRadius(15);
-				planets.put(editPlanet, sprites.size());
+				planets.add(editPlanet);
 				sprites.add(editPlanet);
 				editPlanet = null;
 			}
 		}
 		else if (e.getButton() == MouseEvent.BUTTON3) {
-			int removeIndex = -1;
-			Set<Planet> planetSet = planets.keySet();
-			Iterator<Planet> it = planetSet.iterator();
+			Iterator<Planet> it = planets.iterator();
 			Planet p = null;
 			while (it.hasNext()) {
 				p = it.next();
 				int dx = (int)(p.getX() - e.getX());
 				int dy = (int)(p.getY() - e.getY());
 				if (Math.sqrt(dx*dx+dy*dy)< p.getRadius()) {
-					removeIndex = planets.get(p);
+					sprites.remove(p);
+					planets.remove(p);
 					break;
 				}
-			}
-			if (removeIndex != -1) {
-				sprites.remove(removeIndex);
-				planets.remove(p);
 			}
 		}
 	}
