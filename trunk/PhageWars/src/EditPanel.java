@@ -43,6 +43,15 @@ public class EditPanel extends SpritePanel implements MouseListener, MouseMotion
 		background.setImg(loadImage("/resources/background.png").getImage());
 		sprites.add(background);
 	}
+	public void clear(){
+		Iterator<Planet> it = planets.iterator();
+		Planet p = null;
+		while (it.hasNext()) {
+			p = it.next();
+			sprites.remove(p);
+			it.remove();
+		}
+	}
 	@Override
 	public void paint(Graphics g){
 		super.paint(g);
@@ -124,7 +133,7 @@ public class EditPanel extends SpritePanel implements MouseListener, MouseMotion
 			}
 		}
 	}
-
+	
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
