@@ -118,7 +118,8 @@ public class VirusState extends State {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				// TODO Auto-generated method stub
-				VirusDefinition def = viruses.get(e.getFirstIndex());
+				System.out.println(e.getFirstIndex()+" "+e.getLastIndex());
+				VirusDefinition def = viruses.get(e.getLastIndex());
 				virusPanel.setStrengthPoints(def.getStrength());
 				virusPanel.setDexterityPoints(def.getDexterity());
 				virusPanel.setVitalityPoints(def.getVitality());
