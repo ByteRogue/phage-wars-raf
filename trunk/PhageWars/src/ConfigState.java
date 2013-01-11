@@ -29,6 +29,7 @@ import engine.StateManager;
 
 public class ConfigState extends State{
 	private static final long serialVersionUID = 3352197009780906978L;
+	ButtonGroup rbGroup;
 	public ConfigState(){
 		SpritePanel sp = getSpritePanel();
 		Sprite background = new Sprite();
@@ -59,7 +60,7 @@ public class ConfigState extends State{
 		tezinaPanel.setOpaque(false);
 		tezinaPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 0));
 		tezinaPanel.setPreferredSize(new Dimension(350,50));
-		ButtonGroup rbGroup = new ButtonGroup();
+		rbGroup = new ButtonGroup();
 		JRadioButton radioButton = ComponentFactory.createRadioButton("Easy");
 		rbGroup.add(radioButton);
 		tezinaPanel.add(radioButton);
@@ -80,7 +81,7 @@ public class ConfigState extends State{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				StateManager.changeState(new GameState());
+				StateManager.changeState(new GameState(rbGroup.getSelection().getActionCommand()));
 			}
 		});
 		playButton.setPreferredSize(new Dimension(100, 30));
@@ -92,11 +93,11 @@ public class ConfigState extends State{
 		virusSelectionPanel.setLayout(new BorderLayout());
 		virusSelectionPanel.setPreferredSize(new Dimension(270, 300));
 		
-		DefaultListModel<String> virusListModel = new DefaultListModel<String>();
+		DefaultListModel virusListModel = new DefaultListModel();
 		for (int i = 1; i < 7; i++)
 			virusListModel.addElement("Virus " + i);
 		
-		JList<String> virusList = ComponentFactory.createList(virusListModel);
+		JList virusList = ComponentFactory.createList(virusListModel);
 		JScrollPane scrollPane = new JScrollPane(virusList);
 		scrollPane.setPreferredSize(new Dimension(180, 120));
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
@@ -112,11 +113,11 @@ public class ConfigState extends State{
 		mapSelectionPanel.setLayout(new BorderLayout());
 		mapSelectionPanel.setPreferredSize(new Dimension(340, 300));
 		
-		DefaultListModel<String> mapListModel = new DefaultListModel<String>();
+		DefaultListModel mapListModel = new DefaultListModel();
 		for (int i = 1; i < 30; i++)
 			mapListModel.addElement("Mapa " + i);
 		
-		JList<String> mapList = ComponentFactory.createList(mapListModel);
+		JList mapList = ComponentFactory.createList(mapListModel);
 		scrollPane = new JScrollPane(mapList);
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		JScrollBar scrollBar = new JScrollBar(JScrollBar.VERTICAL);
