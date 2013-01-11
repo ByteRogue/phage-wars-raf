@@ -107,7 +107,7 @@ public class EditPanel extends SpritePanel implements MouseListener, MouseMotion
 				JFormattedTextField numberField = new JFormattedTextField(intFormat);
 				numberField.setText(Integer.toString(selectedPlanet.getNumber()));
 				String viruses[] = {"Neutral", "Player", "Oponent 1","Oponent 2","Oponent 3", "Oponent 4", "Oponent 5"};
-				JComboBox<String> virusCombo = new JComboBox<String>(viruses);
+				JComboBox virusCombo = new JComboBox(viruses);
 				JComponent inputs[] = {new JLabel("Radius:"), radiusField, new JLabel("Number:"), numberField, new JLabel("Type:"), virusCombo};
 				JOptionPane.showMessageDialog(this, inputs, "Planet Properties", JOptionPane.PLAIN_MESSAGE);
 				

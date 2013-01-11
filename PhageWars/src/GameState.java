@@ -22,38 +22,68 @@ public class GameState extends State implements KeyListener, MouseListener, Mous
 	private static final long serialVersionUID = 503713326802063719L;
 	private ArrayList<Planet> planets = new ArrayList<Planet>();
 	private Player player;
-	private AiRandomPlayer aiPlayer;
+	private Player aiPlayer;
 	private ControlerView controlerView;
 	private double mouseX, mouseY;
-	public GameState(){
+	public GameState(String difficultyActionCommand){
 		SpritePanel sp = getSpritePanel();
 		Sprite background = new Sprite();
 		background.setImg(sp.loadImage("/resources/background.png").getImage());
 		sp.getSprites().add(background);
 		
+		
+		//randomizing the planets
 		Planet planet = new Planet();
 		planet.setOwner(1);
 		planet.setNumber(59);
-		planet.setX(100);
-		planet.setY(100);
+		planet.setX((float) (Math.random()*590+30));
+		planet.setY((float) (Math.random()*420+30));
 		planet.setRadius(35);
-		planets.add(planet);
-		planet = new Planet();
-		planet.setX(320);
-		planet.setY(240);
-		planet.setRadius(20);
 		planets.add(planet);
 		
 		
 		planet = new Planet();
 		planet.setOwner(2);
 		planet.setNumber(59);
-		planet.setX(450);
-		planet.setY(400);
-		planet.setRadius(30);
+		
+		boolean flag;
+		do
+		{
+			planet.setX((float) (Math.random()*590+30));
+			planet.setY((float) (Math.random()*420+30));
+			planet.setRadius(35);
+			flag=false;
+			for (Planet p : planets) {
+				if(Math.sqrt((p.getX()-planet.getX())*(p.getX()-planet.getX()) +(p.getY()-planet.getY())  *(p.getY()-planet.getY())) <p.getRadius()+planet.getRadius()){
+					flag=true;
+				}
+			}
+		}
+		while(flag);
+		
 		planets.add(planet);
 		
+		for (int i = 0; i < 6; i++) {
+			planet = new Planet();
+			planet.setNumber(1);
+			planet.setX((float) (Math.random()*590+30));
+			planet.setY((float) (Math.random()*420+30));
+			planet.setRadius((int) (Math.random()*20+10));
+			flag=false;
+			for (Planet p : planets) {
+				if(Math.sqrt((p.getX()-planet.getX())*(p.getX()-planet.getX()) +(p.getY()-planet.getY())  *(p.getY()-planet.getY())) <p.getRadius()+planet.getRadius()){
+					flag=true;
+					i--;
+				}
+			}
+			if(!flag){
+				planets.add(planet);
+			}
+		}
+
 		sp.getSprites().addAll(planets);
+		//ovo randomizovanje ubaciti negde drugde
+		
 		
 		controlerView = new ControlerView(this);
 		sp.getSprites().add(controlerView);
@@ -63,7 +93,20 @@ public class GameState extends State implements KeyListener, MouseListener, Mous
 		player.setId(1);
 		player.setColor(Color.white);
 		
-		aiPlayer = new AiRandomPlayer(this);
+		
+		
+		
+
+		if(difficultyActionCommand.equals("Easy")){
+			aiPlayer = new AiRandomPlayer(this);
+		}
+		else if(difficultyActionCommand.equals("Normal")){
+			aiPlayer= new NormalAiPlayer(this);
+		}
+		else{
+			aiPlayer=new HardAiPlayer(this);
+		}
+		
 		//sp.getSprites().add(flock);
 		
 		addKeyListener(this);

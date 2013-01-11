@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import components.ComponentFactory;
+import core.Benchmark;
 
 import engine.Sprite;
 import engine.SpritePanel;
@@ -110,6 +111,7 @@ public class MainMenu extends State{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				Benchmark.getInstance().stop();
 				Application.getApp().dispose();
 				System.exit(0);
 			}

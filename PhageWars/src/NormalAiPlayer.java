@@ -3,10 +3,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class AiRandomPlayer extends Player {
-	private final int DELAY = 80;
+public class NormalAiPlayer extends Player {
+	private final int DELAY = 60;
 	private int counter;
-	public AiRandomPlayer(GameState state) {
+	public NormalAiPlayer(GameState state) {
 		super(state);
 		// TODO Auto-generated constructor stub
 		setId(2);
@@ -32,12 +32,28 @@ public class AiRandomPlayer extends Player {
 		}
 		if (ownedPlanets.size()>0){
 			int selectCount = (int)(Math.random()*ownedPlanets.size());
-			
 			for (int i = 0; i <= selectCount; i++){
 				selectPlanet(ownedPlanets.get((int)(Math.random()*ownedPlanets.size())));
 			}
 			if (planets.size() > 0)
-				attackPlanet(planets.get((int)(Math.random()*planets.size())));
+			{
+				Planet target;
+				int i=0;
+				do{
+					target=planets.get((int)(Math.random()*planets.size()));
+					i++;
+				}while(isStupidTarget(target) && i<planets.size());
+				
+				attackPlanet(target);
+			}
 		}
+	}
+	private boolean isStupidTarget(Planet target) {
+		int sum=0;
+		for (Planet p : selectedPlanets) {
+			sum+=p.getNumber();
+		}
+		if(sum<target.getNumber()) return true;
+		return false;
 	}
 }

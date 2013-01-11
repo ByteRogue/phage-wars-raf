@@ -61,10 +61,11 @@ public class ComponentFactory {
 			
 		};
 		button.setOpaque(false);
+		button.setActionCommand(title);
 		return button;
 	}
-	public static JList<String> createList(ListModel<String> listModel){
-		JList<String> list = new JList<String>(listModel);
+	public static JList createList(ListModel listModel){
+		JList list = new JList(listModel);
 		list.setBackground(new Color(0xaaffaa));
 		list.setCellRenderer(new GameListCellRender());
 		return list;
