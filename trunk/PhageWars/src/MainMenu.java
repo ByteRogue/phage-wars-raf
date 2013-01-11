@@ -76,7 +76,7 @@ public class MainMenu extends State{
 		mainPanel.add(button);
 		mainPanel.add(Box.createVerticalGlue());
 		
-		button = ComponentFactory.createButton("Editor");
+		button = ComponentFactory.createButton("Map Editor");
 		button.setAlignmentX(0.5f);
 		button.addActionListener(new ActionListener() {
 			
@@ -84,6 +84,20 @@ public class MainMenu extends State{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				StateManager.changeState(new EditorState());
+			}
+		});
+		button.setMaximumSize(new Dimension(100, 30));
+		mainPanel.add(button);
+		mainPanel.add(Box.createVerticalGlue());
+		
+		button = ComponentFactory.createButton("Virus Editor");
+		button.setAlignmentX(0.5f);
+		button.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				StateManager.changeState(new VirusState());
 			}
 		});
 		button.setMaximumSize(new Dimension(100, 30));
