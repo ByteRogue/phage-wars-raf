@@ -31,7 +31,7 @@ import engine.SpritePanel;
 public class EditPanel extends SpritePanel implements MouseListener, MouseMotionListener{
 	
 	/**
-	 * 
+	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = -1983250486298033038L;
 	ArrayList<Planet> planets = new ArrayList<Planet>();

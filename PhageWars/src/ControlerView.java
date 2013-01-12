@@ -29,9 +29,11 @@ public class ControlerView extends Sprite{
 		return lines;
 	}
 
+	/**
+	 * paints to g.
+	 */
 	@Override
 	public void paint(Graphics2D g) {
-		// TODO Auto-generated method stub
 		super.paint(g);
 		Player p = gameState.getPlayer();
 		ArrayList<Planet> planets = p.getSelectedPlanets();

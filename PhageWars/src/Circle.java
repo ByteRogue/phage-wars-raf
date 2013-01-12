@@ -41,6 +41,10 @@ public class Circle extends Sprite{
 		g.setStroke(new BasicStroke(4));
 		g.drawOval((int)(x-radius), (int)(y-radius), (int)(radius*2), (int)(radius*2));
 	}
+	
+	/**
+	 * update
+	 */
 	@Override
 	public void update(){
 		x+=velX;

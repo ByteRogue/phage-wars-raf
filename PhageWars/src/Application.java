@@ -13,7 +13,7 @@ import engine.StateManager;
  */
 public class Application extends JFrame{
 	/**
-	 * 
+	 * App
 	 */
 	private static Application app;
 	/**
