@@ -29,9 +29,6 @@ public class ControlerView extends Sprite{
 		return lines;
 	}
 
-	/**
-	 * paints to g.
-	 */
 	@Override
 	public void paint(Graphics2D g) {
 		super.paint(g);

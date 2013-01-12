@@ -62,6 +62,7 @@ public class SpritePanel extends JPanel {
 		// TODO Auto-generated method stub
 		return new Dimension(640, 480);
 	}*/
+	
 	/**
 	 * @param name
 	 * @return ImageIcon

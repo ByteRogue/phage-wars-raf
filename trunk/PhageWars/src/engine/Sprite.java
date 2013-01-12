@@ -17,7 +17,7 @@ public class Sprite {
 	private float rotation;
 	
 	/**
-	 * Paints to g
+	 * 
 	 * @param g
 	 */
 	public void paint(Graphics2D g) {

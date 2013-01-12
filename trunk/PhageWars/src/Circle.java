@@ -28,9 +28,8 @@ public class Circle extends Sprite{
 		x = planet.getX()+cos*d;
 		y = planet.getY()+sin*d;
 	}
-	/**
-	 * paints to g.
-	 */
+	
+	@Override
 	public void paint(Graphics2D g) {
 		Color c = planet.getColor();
 		g.setColor(c);
@@ -42,9 +41,6 @@ public class Circle extends Sprite{
 		g.drawOval((int)(x-radius), (int)(y-radius), (int)(radius*2), (int)(radius*2));
 	}
 	
-	/**
-	 * update
-	 */
 	@Override
 	public void update(){
 		x+=velX;

@@ -123,9 +123,6 @@ public class Flock extends Sprite {
 		return new Point2D.Double((point.getX()*n/l), (point.getY()*n/l));
 	}
 	
-	/**
-	 * 
-	 */
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
@@ -296,15 +293,22 @@ public class Flock extends Sprite {
 		return Math.sqrt((p1.getX()-p2.getX())*(p1.getX()-p2.getX())+(p1.getY()-p2.getY())*(p1.getY()-p2.getY()));
 	}
 	
+	/**
+	 * Geter za boju
+	 * @return
+	 */
 	public Color getColor() {
 		return color;
 	}
+	
+	/**
+	 * Seter za boju
+	 * @param color
+	 */
 	public void setColor(Color color) {
 		this.color = color;
 	}
-	/**
-	 * paints to g
-	 */
+
 	@Override
 	public void paint(Graphics2D g) {
 		// TODO Auto-generated method stub
