@@ -3,15 +3,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
+/**
+ * Normal dificulty ai, who is faster than easy, and does not make too stupid moves.
+ * @author Djordje Jovanovic
+ *
+ */
 public class NormalAiPlayer extends Player {
 	private final int DELAY = 60;
 	private int counter;
+	/**
+	 * @param state Game state this ai participates in.
+	 */
 	public NormalAiPlayer(GameState state) {
 		super(state);
 		// TODO Auto-generated constructor stub
 		setId(2);
 		setColor(Color.red);
 	}
+	/**
+	 * Called each cycle
+	 */
 	@SuppressWarnings("unchecked")
 	public void update(){
 		super.update();
@@ -48,6 +59,10 @@ public class NormalAiPlayer extends Player {
 			}
 		}
 	}
+	/**
+	 * @param target
+	 * @return If target is really bad target to be attacked from currently selected planets, returns true.
+	 */
 	private boolean isStupidTarget(Planet target) {
 		int sum=0;
 		for (Planet p : selectedPlanets) {

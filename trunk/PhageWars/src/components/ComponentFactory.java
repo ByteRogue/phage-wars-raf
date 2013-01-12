@@ -16,11 +16,23 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class ComponentFactory {
+	/**
+	 * @param title
+	 * @return JButton with title text.
+	 */
 	public static JButton createButton(String title) {
 		JButton button = new GameButton(title);
 		return button;
 	}
+	/**
+	 * @param title
+	 * @return Jpanel with title text.
+	 */
 	public static JPanel createPanel(String title){
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 1, 0, 0.5f));
@@ -31,6 +43,10 @@ public class ComponentFactory {
 		panel.setBorder(titleBorder);
 		return panel;
 	}
+	/**
+	 * @param title
+	 * @return JradioButtion with title text.
+	 */
 	public static JRadioButton createRadioButton(String title){
 		JRadioButton button = new JRadioButton(title){
 
@@ -64,6 +80,10 @@ public class ComponentFactory {
 		button.setActionCommand(title);
 		return button;
 	}
+	/**
+	 * @param listModel
+	 * @return JList with listModel.
+	 */
 	public static JList createList(ListModel listModel){
 		JList list = new JList(listModel);
 		list.setBackground(new Color(0xaaffaa));

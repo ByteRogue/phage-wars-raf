@@ -15,6 +15,11 @@ import engine.State;
 import engine.StateManager;
 
 
+/**
+ * State for the actual game.
+ * @author Stefan Jeremic
+ *
+ */
 public class GameState extends State implements KeyListener, MouseListener, MouseMotionListener {
 	/**
 	 * 
@@ -25,6 +30,10 @@ public class GameState extends State implements KeyListener, MouseListener, Mous
 	private Player aiPlayer;
 	private ControlerView controlerView;
 	private double mouseX, mouseY;
+	/**
+	 * Creates game state interface, initialize ai...
+	 * @param difficultyActionCommand "Easy", "Normal" or "Hard"
+	 */
 	public GameState(String difficultyActionCommand){
 		SpritePanel sp = getSpritePanel();
 		Sprite background = new Sprite();
@@ -146,10 +155,17 @@ public class GameState extends State implements KeyListener, MouseListener, Mous
 		Benchmark.getInstance().addValue("Total number of cells", totalNumberOfCells);
 	}
 
+	/**
+	 * @return list of all planets
+	 */
 	public ArrayList<Planet> getPlanets() {
 		return planets;
 	}
 
+	/**
+	 * Sets planets
+	 * @param planets
+	 */
 	public void setPlanets(ArrayList<Planet> planets) {
 		this.planets = planets;
 	}
@@ -173,6 +189,9 @@ public class GameState extends State implements KeyListener, MouseListener, Mous
 		
 	}
 	
+	/**
+	 * @return Human player
+	 */
 	public Player getPlayer() {
 		return player;
 	}

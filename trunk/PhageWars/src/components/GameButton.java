@@ -13,9 +13,22 @@ import java.awt.geom.Rectangle2D;
 import javax.swing.JButton;
 
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class GameButton extends JButton implements MouseListener {
+	/**
+	 * Outline Color.
+	 */
 	private Color outlineColor;
+	/**
+	 * true if button is pressed.
+	 */
 	private boolean isPressed = false;
+	/**
+	 * @param title    Text of the buttion.
+	 */
 	public GameButton(String title) {
 		super(title);
 		addMouseListener(this);

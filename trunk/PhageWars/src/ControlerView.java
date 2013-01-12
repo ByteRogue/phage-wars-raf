@@ -8,13 +8,23 @@ import java.util.Iterator;
 import engine.Sprite;
 
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class ControlerView extends Sprite{
 	private GameState gameState;
 	private ArrayList<Line2D> lines = new ArrayList<Line2D>();
+	/**
+	 * @param state Game state this belongs to.
+	 */
 	public ControlerView(GameState state){
 		gameState = state;
 	}
 	
+	/**
+	 * @return lines
+	 */
 	public ArrayList<Line2D> getLines() {
 		return lines;
 	}

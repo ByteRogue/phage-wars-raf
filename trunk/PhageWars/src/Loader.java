@@ -11,7 +11,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class Loader {
+	/**
+	 * @return List of Virus Definitions
+	 */
 	public static ArrayList<VirusDefinition> loadViruses(){
 		ArrayList<VirusDefinition> list = new ArrayList<VirusDefinition>();
 		File file = new File("viruses");

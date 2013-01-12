@@ -30,6 +30,11 @@ import engine.State;
 import engine.StateManager;
 
 
+/**
+ * State for map editing.
+ * @author Stefan Jeremic
+ *
+ */
 public class EditorState extends State implements KeyListener{
 	/**
 	 * 
@@ -37,6 +42,9 @@ public class EditorState extends State implements KeyListener{
 	private static final long serialVersionUID = 6293327047569637118L;
 	protected EditPanel editPanel;
 	private String mapName = null;
+	/**
+	 * Creates editor state interface.
+	 */
 	public EditorState(){
 		addKeyListener(this);
 		setLayout(new BorderLayout());
@@ -93,6 +101,9 @@ public class EditorState extends State implements KeyListener{
 		
 		
 	}
+	/**
+	 * Starts loading process.
+	 */
 	private void load(){
 		final JFileChooser fc = new JFileChooser();
 		fc.setCurrentDirectory(new File("maps"));
@@ -128,11 +139,17 @@ public class EditorState extends State implements KeyListener{
 		
 		
 	}
+	/**
+	 * Starts save as process.
+	 */
 	private void saveAs() {
 		mapName = (String) JOptionPane.showInputDialog(this, "Map name", "Save as..", JOptionPane.PLAIN_MESSAGE);
 		save();
 		
 	}
+	/**
+	 * Starts save process.
+	 */
 	private void save() {
 		if (mapName != null) {
 			try {

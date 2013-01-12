@@ -4,10 +4,24 @@ import core.Benchmark;
 
 
 
+/**
+ * Main game thread.
+ * @author Stefan Jeremic
+ * 
+ */
 public class GameThread implements Runnable {
+	/**
+	 * Delay in ms.
+	 */
 	private final int DELAY = 50;
+	/**
+	 * new thread(this).
+	 */
 	private Thread animator;
 	
+	/**
+	 * The only constructor, automaticly starts the thread.
+	 */
 	public GameThread(){
 		animator = new Thread(this);
 		animator.start();
