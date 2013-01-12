@@ -22,9 +22,7 @@ public class Planet extends Sprite {
 	private Color color = Color.blue;
 	private int number;
 	
-	/**
-	 * paints to g.
-	 */
+	
 	@Override
 	public void paint(Graphics2D g) {
 		g.setStroke(new BasicStroke(1));
@@ -43,9 +41,7 @@ public class Planet extends Sprite {
 		g.drawString(Integer.toString(number), x-(int)r.getWidth()/2, y+(int)r.getHeight()/2);
 		
 	}
-	/**
-	 * update
-	 */
+
 	@Override
 	public void update(){
 		if(owner!=0){
