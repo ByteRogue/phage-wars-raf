@@ -7,13 +7,26 @@ import core.Benchmark;
 import engine.GameThread;
 import engine.StateManager;
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class Application extends JFrame{
 	/**
 	 * 
 	 */
 	private static Application app;
+	/**
+	 * serialVersionUID
+	 */
 	private static final long serialVersionUID = -2517616123689799182L;
+	/**
+	 * Games main thread.
+	 */
 	private GameThread gameThread;
+	/**
+	 * Initialize the gameThread and starts. 
+	 */
 	public Application(){
 		super("Phage Wars");
 		StateManager.init(this);
@@ -75,14 +88,24 @@ public class Application extends JFrame{
 		
 	}
 	
+	/**
+	 * @return gameThread.
+	 */
 	public GameThread getGameThread() {
 		return gameThread;
 	}
 
+	/**
+	 * Intialize app.
+	 * @param args
+	 */
 	public static void main(String args[]){
 		
 		app = new Application();
 	}
+	/**
+	 * @return app
+	 */
 	public static Application getApp(){
 		return app;
 	}

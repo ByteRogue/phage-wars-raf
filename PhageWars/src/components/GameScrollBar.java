@@ -10,8 +10,19 @@ import java.awt.RenderingHints;
 
 import javax.swing.JScrollBar;
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class GameScrollBar extends JScrollBar {
+	/**
+	 * serialVersionUID.
+	 */
 	private static final long serialVersionUID = 7653444710146813576L;
+	/**
+	 * Constructor, calls super(orientation).
+	 * @param orientation
+	 */
 	public GameScrollBar(int orientation){
 		super(orientation);
 		setOpaque(false);

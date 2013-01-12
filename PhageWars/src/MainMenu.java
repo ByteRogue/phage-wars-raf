@@ -18,12 +18,20 @@ import engine.State;
 import engine.StateManager;
 
 
+/**
+ * Main menu state, for the welcome screen.
+ * @author Stefan Jeremic
+ *
+ */
 public class MainMenu extends State{
 	/**
-	 * 
+	 * serialVersionUID.
 	 */
 	private static final long serialVersionUID = -3088890058631223710L;
 
+	/**
+	 * Creates interface for main menu.
+	 */
 	public MainMenu() {
 		SpritePanel sp = getSpritePanel();
 		Sprite background = new Sprite();

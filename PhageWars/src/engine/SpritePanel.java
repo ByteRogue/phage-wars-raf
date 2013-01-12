@@ -9,11 +9,25 @@ import javax.swing.JPanel;
 
 
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class SpritePanel extends JPanel {
+	/**
+	 * List of all sprites.
+	 */
 	protected ArrayList<Sprite> sprites = new ArrayList<Sprite>();
+	/**
+	 * @return list of all sprites
+	 */
 	public ArrayList<Sprite> getSprites(){
 		return sprites;
 	}
+	/** 
+	 * Paints to g.
+	 * @param g
+	 */
 	public void paint(Graphics g)
     {
 		super.paint(g);
@@ -48,6 +62,10 @@ public class SpritePanel extends JPanel {
 		// TODO Auto-generated method stub
 		return new Dimension(640, 480);
 	}*/
+	/**
+	 * @param name
+	 * @return ImageIcon
+	 */
 	public ImageIcon loadImage(String name){
 		ImageIcon ii = new ImageIcon(this.getClass().getResource(name));
 		return ii;

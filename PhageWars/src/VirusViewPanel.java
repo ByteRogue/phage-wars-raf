@@ -9,6 +9,10 @@ import engine.Sprite;
 import engine.SpritePanel;
 
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class VirusViewPanel extends SpritePanel implements MouseListener{
 
 	/**
@@ -21,14 +25,23 @@ public class VirusViewPanel extends SpritePanel implements MouseListener{
 	private boolean editable = true;
 	private VirusDefinition definition = null;
 	
+	/**
+	 * @return definition
+	 */
 	public VirusDefinition getDefinition() {
 		return definition;
 	}
 
+	/**
+	 * @param definition Definition to be set
+	 */
 	public void setDefinition(VirusDefinition definition) {
 		this.definition = definition;
 	}
 
+	/**
+	 * Main constructor.
+	 */
 	public VirusViewPanel(){
 		setBackground(Color.black);
 		setPreferredSize(new Dimension(240, 240));
@@ -38,34 +51,58 @@ public class VirusViewPanel extends SpritePanel implements MouseListener{
 		
 	}
 	
+	/**
+	 * @return editable
+	 */
 	public boolean isEditable() {
 		return editable;
 	}
 
+	/**
+	 * @param editable Editable to be set
+	 */
 	public void setEditable(boolean editable) {
 		this.editable = editable;
 	}
 
+	/**
+	 * @return strengthPoints
+	 */
 	public int getStrengthPoints() {
 		return strengthPoints;
 	}
 
+	/**
+	 * @param strengthPoints Strength Points to be set
+	 */
 	public void setStrengthPoints(int strengthPoints) {
 		this.strengthPoints = strengthPoints;
 	}
 
+	/**
+	 * @return vitalityPoints
+	 */
 	public int getVitalityPoints() {
 		return vitalityPoints;
 	}
 
+	/**
+	 * @param vitalityPoints Vitality points to be set
+	 */
 	public void setVitalityPoints(int vitalityPoints) {
 		this.vitalityPoints = vitalityPoints;
 	}
 
+	/**
+	 * @return dexterityPoints
+	 */
 	public int getDexterityPoints() {
 		return dexterityPoints;
 	}
 
+	/**
+	 * @param dexterityPoints Dexterity points to be set
+	 */
 	public void setDexterityPoints(int dexterityPoints) {
 		this.dexterityPoints = dexterityPoints;
 	}

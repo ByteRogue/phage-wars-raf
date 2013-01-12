@@ -24,6 +24,10 @@ import engine.Sprite;
 import engine.SpritePanel;
 
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class EditPanel extends SpritePanel implements MouseListener, MouseMotionListener{
 	
 	/**
@@ -33,6 +37,9 @@ public class EditPanel extends SpritePanel implements MouseListener, MouseMotion
 	ArrayList<Planet> planets = new ArrayList<Planet>();
 	Planet selectedPlanet = null;
 	Planet editPlanet = null;
+	/**
+	 * Main constructor that sets evrything to default.
+	 */
 	public EditPanel(){
 		setBackground(Color.white);
 		setPreferredSize(new Dimension(640, 480));
@@ -43,6 +50,9 @@ public class EditPanel extends SpritePanel implements MouseListener, MouseMotion
 		background.setImg(loadImage("/resources/background.png").getImage());
 		sprites.add(background);
 	}
+	/**
+	 * Clears the map.
+	 */
 	public void clear(){
 		Iterator<Planet> it = planets.iterator();
 		Planet p = null;

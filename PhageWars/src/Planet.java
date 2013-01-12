@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import engine.Sprite;
 
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class Planet extends Sprite {
 	private final int NUMBER_INCREMENT_STEP = 24;
 	private int step=0;
@@ -17,6 +21,7 @@ public class Planet extends Sprite {
 	private int radius;
 	private Color color = Color.blue;
 	private int number;
+	@Override
 	public void paint(Graphics2D g) {
 		g.setStroke(new BasicStroke(1));
 		g.setColor(color);
@@ -47,9 +52,16 @@ public class Planet extends Sprite {
 			circles.get(i).update();
 		}
 	}
+	/**
+	 * @return radius of the planet.
+	 */
 	public int getRadius() {
 		return radius;
 	}
+	/**
+	 * Sets radius.
+	 * @param radius
+	 */
 	public void setRadius(int radius) {
 		this.radius = radius;
 		circles.clear();
@@ -57,21 +69,42 @@ public class Planet extends Sprite {
 			circles.add(new Circle(this));
 		}
 	}
+	/**
+	 * @return Color of the planet.
+	 */
 	public Color getColor() {
 		return color;
 	}
+	/**
+	 * Sets color of the planet.
+	 * @param color
+	 */
 	public void setColor(Color color) {
 		this.color = color;
 	}
+	/**
+	 * @return number
+	 */
 	public int getNumber() {
 		return number;
 	}
+	/**
+	 * Sets the number.
+	 * @param number
+	 */
 	public void setNumber(int number) {
 		this.number = number;
 	}
+	/**
+	 * @return id of the player owing this planet. 0 if no owner.
+	 */
 	public int getOwner() {
 		return owner;
 	}
+	/**
+	 * Sets the id of the owner of the planet.
+	 * @param owner
+	 */
 	public void setOwner(int owner) {
 		
 		this.owner = owner;

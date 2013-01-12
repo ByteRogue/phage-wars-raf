@@ -27,9 +27,23 @@ import engine.State;
 import engine.StateManager;
 
 
+/**
+ * State for configuration of difficulty, choosing map and viruse.
+ * @author Stefan Jeremic
+ *
+ */
 public class ConfigState extends State{
+	/**
+	 * serialVersionUID
+	 */
 	private static final long serialVersionUID = 3352197009780906978L;
+	/**
+	 * radio buttion group.
+	 */
 	ButtonGroup rbGroup;
+	/**
+	 * Creates config state interface.
+	 */
 	public ConfigState(){
 		SpritePanel sp = getSpritePanel();
 		Sprite background = new Sprite();

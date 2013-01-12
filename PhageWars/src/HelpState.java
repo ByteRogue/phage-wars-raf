@@ -8,15 +8,23 @@ import engine.State;
 import engine.StateManager;
 
 
+/**
+ * State for instructions.
+ * @author Stefan Jeremic
+ *
+ */
 public class HelpState extends State {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7959973683031670289L;
 
+	/**
+	 * Creates interface.
+	 */
 	public HelpState(){
 		super();
-		JButton backButton = new JButton("Back1");
+		JButton backButton = new JButton("Back");
 		backButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -26,6 +34,6 @@ public class HelpState extends State {
 			}
 		});
 		add(backButton);
-		add(new JLabel("Help help help!!!"));
+		add(new JLabel("Under construction!"));
 	}
 }

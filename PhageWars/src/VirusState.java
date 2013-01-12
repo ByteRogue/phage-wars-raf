@@ -27,10 +27,15 @@ import engine.SpritePanel;
 import engine.State;
 
 
+/**
+ * State for virus creation.
+ * @author Stefan Jeremic
+ *
+ */
 public class VirusState extends State {
 
 	private static final long serialVersionUID = -8430175730126949552L;
-	private JList<String> virusList;
+	private JList virusList;
 	private JButton addButton;
 	private JButton removeButton;
 	private DefaultListModel virusListModel;
@@ -38,6 +43,9 @@ public class VirusState extends State {
 	private Color virusColor;
 	private ArrayList<VirusDefinition> viruses = new ArrayList<VirusDefinition>();
 	private int virusCounter;
+	/**
+	 * Creates interface for virus state.
+	 */
 	public VirusState(){
 		setLayout(new BorderLayout());
 		setBorder(BorderFactory.createEmptyBorder(20, 20,20, 20));

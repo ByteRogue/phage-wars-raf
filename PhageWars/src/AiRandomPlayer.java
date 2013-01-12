@@ -3,15 +3,32 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
+/**
+ * This Ai sends random attacks from random planets. Easy Ai.
+ * @author Stefan Jeremic
+ *
+ */
 public class AiRandomPlayer extends Player {
+	/**
+	 * Number of skipped cycles. The more it is, the slower the ai is.
+	 */
 	private final int DELAY = 80;
+	/**
+	 * count of skipped cycles.
+	 */
 	private int counter;
+	/**
+	 * @param state The state this ai participates in.
+	 */
 	public AiRandomPlayer(GameState state) {
 		super(state);
 		// TODO Auto-generated constructor stub
 		setId(2);
 		setColor(Color.red);
 	}
+	/** 
+	 * this is called in each cycle.
+	 */
 	@SuppressWarnings("unchecked")
 	public void update(){
 		super.update();

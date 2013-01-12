@@ -7,8 +7,18 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class GameListCellRender extends JLabel implements ListCellRenderer {
+	/**
+	 * serialVersionUID.
+	 */
 	private static final long serialVersionUID = 9170788347510328295L;
+	/**
+	 * Main constructor, sets opaque true.
+	 */
 	public GameListCellRender(){
 		setOpaque(true);
 	}

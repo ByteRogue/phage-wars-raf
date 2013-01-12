@@ -5,10 +5,17 @@ import java.awt.Graphics2D;
 import engine.Sprite;
 
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class Circle extends Sprite{
 	private float radius;
 	private Planet planet;
 	private float velX, velY;
+	/**
+	 * @param planet The planet this circle belongs to.
+	 */
 	public Circle(Planet planet){
 		this.planet = planet;
 		velX = (float)(Math.random()-0.5)*5;
@@ -21,6 +28,9 @@ public class Circle extends Sprite{
 		x = planet.getX()+cos*d;
 		y = planet.getY()+sin*d;
 	}
+	/**
+	 * paints to g.
+	 */
 	public void paint(Graphics2D g) {
 		Color c = planet.getColor();
 		g.setColor(c);

@@ -7,7 +7,14 @@ import javax.swing.LookAndFeel;
 import javax.swing.plaf.basic.BasicArrowButton;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
+/**
+ * @author Stefan Jeremic
+ *
+ */
 public class GameScrollBarUI extends BasicScrollBarUI {
+	/**
+	 * Main constructor.
+	 */
 	public GameScrollBarUI() {
 		// TODO Auto-generated constructor stub
 		//trackColor = new Color(0x555555);
