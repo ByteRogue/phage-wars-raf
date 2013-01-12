@@ -18,12 +18,23 @@ public class Flock extends Sprite {
 		private int counter;
 		private final int DELAY = 2; 
 		
+		/**
+		 * generator
+		 * @param flock
+		 * @param start
+		 * @param target
+		 * @param number
+		 */
 		public FlockGenerator(Flock flock, Planet start, Planet target, int number){
 			this.flock = flock;
 			this.start = start;
 			this.target = target;
 			this.number = number;
 		}
+		
+		/**
+		 * update
+		 */
 		public void update(){
 			counter++;
 			if (counter>DELAY) {
@@ -37,6 +48,9 @@ public class Flock extends Sprite {
 		}
 	}
 	private Color color;
+	/**
+	 * virusi
+	 */
 	private ArrayList<Virus> elements = new ArrayList<Virus>();
 	
 	private ArrayList<FlockGenerator>generators = new ArrayList<Flock.FlockGenerator>();
@@ -51,6 +65,12 @@ public class Flock extends Sprite {
 	private float speed = 4;
 	private ArrayList<Planet> planets;
 	//private ArrayList<Point2D> aims = new ArrayList<Point2D>();
+	
+	/**
+	 * Flock
+	 * @param planets
+	 * @param id
+	 */
 	public Flock(ArrayList<Planet> planets,int id){
 		color = new Color(255,255,255,255);
 		this.id = id;
@@ -60,9 +80,22 @@ public class Flock extends Sprite {
 			angles.add(i, 0.0f);
 		}*/
 	}
+	
+	/**
+	 * Kreira generator
+	 * @param start
+	 * @param target
+	 * @param number
+	 */
 	public void createGenerator(Planet start, Planet target, int number) {
 		generators.add(new FlockGenerator(this, start, target, number));
 	}
+	
+	/**
+	 * 
+	 * @param start
+	 * @param target
+	 */
 	public void addElement(Planet start, Planet target){
 		Virus v = new Virus();
 		Point2D s = new Point2D.Double(target.getX()-start.getX(), target.getY()-start.getY());
@@ -74,6 +107,13 @@ public class Flock extends Sprite {
 		//angles.add(0.0f);
 		v.setTarget(target);
 	}
+	
+	/**
+	 * 
+	 * @param point
+	 * @param n
+	 * @return
+	 */
 	public Point2D normalize(Point2D point, double n){
 		
 		double l = Math.sqrt(point.getX()*point.getX()+point.getY()*point.getY());
@@ -82,6 +122,10 @@ public class Flock extends Sprite {
 		}
 		return new Point2D.Double((point.getX()*n/l), (point.getY()*n/l));
 	}
+	
+	/**
+	 * 
+	 */
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
@@ -241,6 +285,13 @@ public class Flock extends Sprite {
 		}
 		
 	}
+	
+	/**
+	 * Vraca rastojanje
+	 * @param p1
+	 * @param p2
+	 * @return
+	 */
 	private double getDistance(Point2D p1, Point2D p2) {
 		return Math.sqrt((p1.getX()-p2.getX())*(p1.getX()-p2.getX())+(p1.getY()-p2.getY())*(p1.getY()-p2.getY()));
 	}
@@ -251,6 +302,9 @@ public class Flock extends Sprite {
 	public void setColor(Color color) {
 		this.color = color;
 	}
+	/**
+	 * paints to g
+	 */
 	@Override
 	public void paint(Graphics2D g) {
 		// TODO Auto-generated method stub
