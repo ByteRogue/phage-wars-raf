@@ -3,6 +3,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -40,7 +41,8 @@ public class ConfigState extends State{
 	/**
 	 * radio buttion group.
 	 */
-	ButtonGroup rbGroup;
+	private ButtonGroup rbGroup;
+	private JList mapList;
 	/**
 	 * Creates config state interface.
 	 */
@@ -95,7 +97,7 @@ public class ConfigState extends State{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				StateManager.changeState(new GameState(rbGroup.getSelection().getActionCommand()));
+				StateManager.changeState(new GameState(rbGroup.getSelection().getActionCommand(),mapList.getSelectedValue()!=null?mapList.getSelectedValue().toString():"random"));
 			}
 		});
 		playButton.setPreferredSize(new Dimension(100, 30));
@@ -127,11 +129,22 @@ public class ConfigState extends State{
 		mapSelectionPanel.setLayout(new BorderLayout());
 		mapSelectionPanel.setPreferredSize(new Dimension(340, 300));
 		
-		DefaultListModel mapListModel = new DefaultListModel();
-		for (int i = 1; i < 30; i++)
-			mapListModel.addElement("Mapa " + i);
+//		DefaultListModel mapListModel = new DefaultListModel();
+//		for (int i = 1; i < 30; i++)
+//			mapListModel.addElement("Mapa " + i);
 		
-		JList mapList = ComponentFactory.createList(mapListModel);
+		DefaultListModel mapListModel = new DefaultListModel();
+		File folder = new File("maps/");
+	    File[] listOfFiles = folder.listFiles();
+
+	    for (int i = 0; i < listOfFiles.length; i++) {
+	      if (listOfFiles[i].isFile()) {
+	          mapListModel.addElement(listOfFiles[i].getName());
+	      }
+	    }
+		
+		
+		mapList = ComponentFactory.createList(mapListModel);
 		scrollPane = new JScrollPane(mapList);
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		JScrollBar scrollBar = new JScrollBar(JScrollBar.VERTICAL);
