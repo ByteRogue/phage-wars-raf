@@ -5,6 +5,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.Line2D;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -33,14 +39,43 @@ public class GameState extends State implements KeyListener, MouseListener, Mous
 	/**
 	 * Creates game state interface, initialize ai...
 	 * @param difficultyActionCommand "Easy", "Normal" or "Hard"
+	 * @param mapName The name of the map in maps folder or random for random position of planets.
 	 */
-	public GameState(String difficultyActionCommand){
+	public GameState(String difficultyActionCommand, String mapName){
 		SpritePanel sp = getSpritePanel();
 		Sprite background = new Sprite();
 		background.setImg(sp.loadImage("/resources/background.png").getImage());
 		sp.getSprites().add(background);
 		
 		
+		
+		File file = new File("maps/"+mapName);
+        if (file.exists() && !mapName.equals("random")){
+            try {
+                DataInputStream in = new DataInputStream(new BufferedInputStream(new FileInputStream(file)));
+                try {
+                    int n = in.readInt();
+                    for (int i = 0; i < n; i++) {
+                        Planet planet = new Planet();
+                        planet.setX(in.readFloat());
+                        planet.setY(in.readFloat());
+                        planet.setRadius(in.readInt());
+                        planet.setNumber(in.readInt());
+                        planet.setOwner(in.readInt());
+                        planets.add(planet);
+                    }
+                    in.close();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        else{
 		//randomizing the planets
 		Planet planet = new Planet();
 		planet.setOwner(1);
@@ -89,9 +124,10 @@ public class GameState extends State implements KeyListener, MouseListener, Mous
 				planets.add(planet);
 			}
 		}
+        }
 
 		sp.getSprites().addAll(planets);
-		//ovo randomizovanje ubaciti negde drugde
+		
 		
 		
 		controlerView = new ControlerView(this);
